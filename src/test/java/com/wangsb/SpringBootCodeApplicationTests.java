@@ -1,6 +1,7 @@
 package com.wangsb;
 
 import com.wangsb.config.HttpClientConfig;
+import com.wangsb.config.MyBeanConfig;
 import com.wangsb.model.MyBean;
 import com.wangsb.model.MyHttpClient;
 import com.wangsb.service.UserService;
@@ -41,8 +42,8 @@ class SpringBootCodeApplicationTests {
     @Test
     public void testConditionalOnPropertyConfig() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
-        MyHttpClient myHttpClient = applicationContext.getBean("myHttpClient", MyHttpClient.class);
-        System.out.println("myHttpClient = " + myHttpClient);
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
     }
     @Test
     public void testConditionalOnResource() {
@@ -70,6 +71,18 @@ class SpringBootCodeApplicationTests {
     }
     @Test
     public void testConditionalOnSingleCandidate() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
+    }
+    @Test
+    public void testConditionalOnExpression() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
+    }
+    @Test
+    public void testConditionalOnJava() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
         MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
         System.out.println("myBean = " + myBean);

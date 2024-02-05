@@ -1,20 +1,26 @@
 package com.wangsb.config;
 
 import com.wangsb.model.MyHttpClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.system.JavaVersion;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 /**
  * @author wangshenbing
  */
 @Configuration
-
-@ConditionalOnClass(name = {"org.apache.http.client.HttpClient"})
+//@ConditionalOnClass(name = {"org.apache.http.client.HttpClient"})
 //@ConditionalOnMissingClass("org.apache.http.client.HttpClient1")
 public class HttpClientConfig {
+    @Autowired
+    private Environment environment;
+
     /**
      * prefix：属性的前缀，用于指定要匹配的属性的命名空间，默认为空字符串。
      * name：属性的名称，用于指定要匹配的属性的具体名称。
@@ -33,12 +39,9 @@ public class HttpClientConfig {
      * @return
      */
     @Bean
-    //@ConditionalOnProperty(
-    //        prefix = "myapp.enabled",
-    //        name = "flag",
-    //        havingValue = "true"
-    //)
+
     public MyHttpClient myHttpClient() {
+        String value = environment.getProperty("test.property.value");
         MyHttpClient myHttpClient = new MyHttpClient();
         myHttpClient.setMaxOutTime(2000L);
         return myHttpClient;
