@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author wangshenbing
+ */
 @Component
 public class UserService implements ApplicationEventPublisherAware {
     private ApplicationEventPublisher applicationEventPublisher;
