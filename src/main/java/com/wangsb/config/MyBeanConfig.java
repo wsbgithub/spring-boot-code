@@ -13,14 +13,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 
 public class MyBeanConfig {
-    @Bean
-    @ConditionalOnResource(resources = "config.properties")
-    public MyBean myBean() {
-        MyBean myBean = new MyBean();
-        myBean.setName("wangsb");
-        return myBean;
-
-
-    }
+    //@Bean
+    //@ConditionalOnResource(resources = "config1.properties")
+    //public MyBean myBean() {
+    //    MyBean myBean = new MyBean();
+    //    myBean.setName("wangsb");
+    //    return myBean;
+    //}
 
 }

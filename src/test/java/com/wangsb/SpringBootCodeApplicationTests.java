@@ -50,4 +50,16 @@ class SpringBootCodeApplicationTests {
         MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
         System.out.println("myBean = " + myBean);
     }
+    @Test
+    public void testConditionalOnWebApplication() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
+    }
+    @Test
+    public void testConditionalOnBean() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
+    }
 }

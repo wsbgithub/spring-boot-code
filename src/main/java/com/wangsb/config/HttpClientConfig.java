@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 
-//@ConditionalOnClass(name = {"org.apache.http.client.HttpClient"})
+@ConditionalOnClass(name = {"org.apache.http.client.HttpClient"})
 //@ConditionalOnMissingClass("org.apache.http.client.HttpClient1")
 public class HttpClientConfig {
     /**
@@ -33,11 +33,11 @@ public class HttpClientConfig {
      * @return
      */
     @Bean
-    @ConditionalOnProperty(
-            prefix = "myapp.enabled",
-            name = "flag",
-            havingValue = "true"
-    )
+    //@ConditionalOnProperty(
+    //        prefix = "myapp.enabled",
+    //        name = "flag",
+    //        havingValue = "true"
+    //)
     public MyHttpClient myHttpClient() {
         MyHttpClient myHttpClient = new MyHttpClient();
         myHttpClient.setMaxOutTime(2000L);
