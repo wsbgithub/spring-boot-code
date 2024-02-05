@@ -62,4 +62,16 @@ class SpringBootCodeApplicationTests {
         MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
         System.out.println("myBean = " + myBean);
     }
+    @Test
+    public void testConditionalOnMissingBean() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
+    }
+    @Test
+    public void testConditionalOnSingleCandidate() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
+    }
 }
