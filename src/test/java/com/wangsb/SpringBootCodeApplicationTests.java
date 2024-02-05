@@ -2,6 +2,7 @@ package com.wangsb;
 
 import com.wangsb.config.HttpClientConfig;
 import com.wangsb.config.MyBeanConfig;
+import com.wangsb.model.Dog;
 import com.wangsb.model.MyBean;
 import com.wangsb.model.MyHttpClient;
 import com.wangsb.service.UserService;
@@ -86,5 +87,14 @@ class SpringBootCodeApplicationTests {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
         MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
         System.out.println("myBean = " + myBean);
+    }
+
+
+    @Test
+    public void testBeanDefinitionRegistryPostProcessor(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.wangsb");
+        Dog dog = ((Dog) context.getBean("dog"));
+        System.out.println(dog.getName());
+        System.out.println(dog.getColor());
     }
 }
