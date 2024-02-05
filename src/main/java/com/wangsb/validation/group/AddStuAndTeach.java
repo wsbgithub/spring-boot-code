@@ -1,4 +1,4 @@
-package com.wangsb.group;
+package com.wangsb.validation.group;
 
 /**
  * @author wangshenbing

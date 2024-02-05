@@ -1,6 +1,6 @@
 package com.wangsb.model;
 
-import com.wangsb.group.AddStuAndTeach;
+import com.wangsb.validation.group.AddStuAndTeach;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;

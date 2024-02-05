@@ -1,9 +1,9 @@
 package com.wangsb.model;
 
 
-import com.wangsb.group.AddStuAndTeach;
-import com.wangsb.group.AddStudent;
-import com.wangsb.group.QueryDetail;
+import com.wangsb.validation.group.AddStuAndTeach;
+import com.wangsb.validation.group.AddStudent;
+import com.wangsb.validation.group.QueryDetail;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 

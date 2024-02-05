@@ -1,14 +1,16 @@
 package com.wangsb.controller;
 
-import com.wangsb.group.AddStuAndTeach;
-import com.wangsb.group.AddStudent;
-import com.wangsb.group.QueryDetail;
+import com.wangsb.validation.group.AddStuAndTeach;
+import com.wangsb.validation.group.AddStudent;
+import com.wangsb.validation.group.QueryDetail;
 import com.wangsb.model.Student;
+import com.wangsb.model.Teacher;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 /**
  * @author wangshenbing
@@ -44,6 +46,12 @@ public class StudentController {
     @PostMapping("/detail")
     public String detail(@Validated(QueryDetail.class)@RequestBody Student student){
         System.out.println("学生id:"+student.getId());
+        return "success";
+    }
+
+    @PostMapping("/batchAddTeacher")
+    public String batchAddTeacher(@Validated(AddStuAndTeach.class) @RequestBody List<Teacher> teachers) {
+        System.out.println("添加老师:" + teachers.size());
         return "success";
     }
 }
