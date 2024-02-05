@@ -16,6 +16,19 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
+
+    /**
+     * 对敏感信息的解密处理，比如数据库连接信息加密和解密：在实际的业务开发中，在配置文件中明文配置mysq，
+     * redis的密码实际上是不安全的，需要配置加密后的密码信息；但是把加密后的密码信息注入的数据源中，
+     * 去连接mysql数据库肯定会连接异常，因为mysql并不知道你的加密方式和加密方法。
+     * 这就会产生一个需求：需要在配置文件中配置的数据库信息是加密的，但是在把密码信息注入数据源前在程序里解密处理。
+     * <p>
+     * BeanFactoryPostProcessor正好可以解决这个问题，在真正使用到数据源去连接数据库前，
+     * 读取到加密信息，进行解密处理，再用解密后的信息替换掉Spring容器中加密信息。
+     *
+     * @param registry the bean definition registry used by the application context
+     * @throws BeansException
+     */
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         //手工定义一个beanDefinition实例
@@ -31,6 +44,7 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
         //注册手工定义的beanDefinition
         registry.registerBeanDefinition("dog", beanDefinition);
     }
+
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         System.out.println("-----------start------------");

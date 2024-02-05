@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  **/
 
 @Configuration
-//@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+
 //@ConditionalOnBean(name = "myHttpClient")
 //@ConditionalOnMissingBean(name = "myHttpClient1")
 //@ConditionalOnSingleCandidate(ApplicationListener.class)
@@ -24,9 +24,10 @@ public class MyBeanConfig1 {
 
     @Bean
     //@ConditionalOnJava(JavaVersion.ELEVEN)
-    @ConditionalOnProperty(
-            value = "test.property.value-test"
-    )
+    //@ConditionalOnProperty(
+    //        value = "test.property.value-test"
+    //)
+    //@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
     public MyBean myBean() {
         MyBean myBean = new MyBean();
         myBean.setName("wangsb");

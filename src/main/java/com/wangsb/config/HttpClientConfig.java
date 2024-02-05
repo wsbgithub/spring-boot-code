@@ -39,7 +39,6 @@ public class HttpClientConfig {
      * @return
      */
     @Bean
-
     public MyHttpClient myHttpClient() {
         String value = environment.getProperty("test.property.value");
         MyHttpClient myHttpClient = new MyHttpClient();
