@@ -1,8 +1,10 @@
 package com.wangsb;
 
 import com.wangsb.config.HttpClientConfig;
+import com.wangsb.model.MyBean;
 import com.wangsb.model.MyHttpClient;
 import com.wangsb.service.UserService;
+import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -29,7 +31,23 @@ class SpringBootCodeApplicationTests {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
         MyHttpClient myHttpClient = applicationContext.getBean("myHttpClient", MyHttpClient.class);
         System.out.println("myHttpClient = " + myHttpClient);
-
-
+    }
+    @Test
+    public void testConditionalOnMissingClass() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyHttpClient myHttpClient = applicationContext.getBean("myHttpClient", MyHttpClient.class);
+        System.out.println("myHttpClient = " + myHttpClient);
+    }
+    @Test
+    public void testConditionalOnPropertyConfig() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyHttpClient myHttpClient = applicationContext.getBean("myHttpClient", MyHttpClient.class);
+        System.out.println("myHttpClient = " + myHttpClient);
+    }
+    @Test
+    public void testConditionalOnResource() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.wangsb");
+        MyBean myBean = applicationContext.getBean("myBean", MyBean.class);
+        System.out.println("myBean = " + myBean);
     }
 }
