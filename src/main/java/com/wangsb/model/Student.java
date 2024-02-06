@@ -1,6 +1,7 @@
 package com.wangsb.model;
 
 
+import com.wangsb.annotation.SexValid;
 import com.wangsb.annotation.StuCodeValid;
 import com.wangsb.validation.group.AddStuAndTeach;
 import com.wangsb.validation.group.AddStudent;
@@ -26,6 +27,8 @@ public class Student {
     @NotNull(message = "姓名不能为空",groups = AddStudent.class)
     @Length(min = 2, max = 3, message = "姓名的长度范围是(2,3)",groups = AddStudent.class)
     private String stuName;
+    @SexValid(groups = AddStudent.class)
+    private String sex;
     @Valid
     @NotNull(message = "学生的老师不能为空", groups = AddStuAndTeach.class)
     private Teacher teacher;
